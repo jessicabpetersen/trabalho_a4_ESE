@@ -16,10 +16,10 @@ Funcionalidades:
 6. Serviço para informar que vai começar a assitir um filme, informando seu código
 7. Registrar os serviços usando os itens (03 - incluir, 03 - alterar, 03 - excluir, 06)
   
-URI | Método | Formato | Efeito|
----|----|---|---\
-/cliente/listar | GET | Coleção de Clientes | Busca a lista de Clientes cadastrados|
-/cliente/{id} | GET | Cliente| Busca um Cliente|
-/cliente/{id} | DELETE| - | Remove um Cliente|
-/cliente | POST | Cliente | Inclui um cliente|
-/cliente | PUT | Cliente | Altera um cliente|
+URI | Método | Formato | Efeito
+---|----|---|---
+/cliente/listar | GET | Coleção de Clientes | Busca a lista de Clientes cadastrados
+/cliente/{id} | GET | Cliente| Busca um Cliente
+/cliente/{id} | DELETE| - | Remove um Cliente
+/cliente | POST | Cliente | Inclui um cliente
+/cliente | PUT | Cliente | Altera um cliente
