@@ -1,6 +1,11 @@
 # trabalho_a4
  trabalho a4 da materia Engenharia de Software Orientada a Serviço
-  
+
+**Acadêmicos**
+Alexander Felipe Chiudini Ristow
+Jéssica Bernardi Petersen
+Rafael de Miranda  
+
 Objetivo:
 - criar serviço web usando Jersey  
   
