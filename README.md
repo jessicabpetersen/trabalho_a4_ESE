@@ -1,18 +1,18 @@
 # trabalho_a4
  trabalho a4 da materia Engenharia de Software Orientada a Serviço
 
-**Acadêmicos**
-Alexander Felipe Chiudini Ristow
-Jéssica Bernardi Petersen
+**Acadêmicos:**  
+Alexander Felipe Chiudini Ristow  
+Jéssica Bernardi Petersen  
 Rafael de Miranda  
 
-Objetivo:
+**Objetivo:**
 - criar serviço web usando Jersey  
   
-Banco de dados:
+**Banco de dados:**
 ![Screenshot](mer.png)
 
-Funcionalidades:
+**Funcionalidades:**
 1. Serviço para se autenticar na aplicação
 2. Serviço para retornar uma lista dos filmes que contém em seu nome uma string informada
 3. Serviço (incluir, alterar e excluir) para classificar um filme como gostou ou não gostou informando o código do filme
