@@ -19,6 +19,7 @@
             <p>Acadêmicos:</p>
             <p>Alexander Felipe Chiudini Ristow</p>
             <p>Jéssica Bernardi Petersen</p>
+            <p>Rafael de Miranda</p>
         </div>
     </footer>
     </body>
