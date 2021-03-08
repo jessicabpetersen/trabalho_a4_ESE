@@ -12,7 +12,13 @@
 
     <body>
         <div class="container">
+            <a href="login" class="btn btn-primary">Login</a>
             <a href="filmes" class="btn btn-primary">Filmes</a>
+            <a href="oscar" class="btn btn-primary">Oscares</a>
+            <a href="elenco" class="btn btn-primary">Elenco</a>
+            <a href="classificar" class="btn btn-primary">Classificar</a>
+            <a href="assitir" class="btn btn-primary">Assitir</a>
+            <a href="registrar" class="btn btn-primary">Registrar</a>
         </div>
     <footer>
         <div class="container">
