@@ -13,8 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PrincipalController {
     
-    @RequestMapping("/index")
+    @RequestMapping("/inicial")
     public String iniciando(){
+        return "login";
+    }
+    
+     @RequestMapping("/index")
+    public String logar(){
         return "index";
     }
     
@@ -29,40 +34,15 @@ public class PrincipalController {
         return "filmes";
     }
     
-    @RequestMapping("/elenco")
-    public String elenco(Model model){
-        
-        return "elenco";
-    }
-    
-    @RequestMapping("/login")
-    public String login(Model model){
-        
-        return "login";
-    }
-    
-    @RequestMapping("/assistir")
-    public String assistir(Model model){
-        
-        return "assistir";
-    }
-    
-    @RequestMapping("/classificar")
-    public String classificar(Model model){
-        
-        return "classificar";
-    }
-    
     @RequestMapping("/oscar")
     public String oscar(Model model){
-        
+        FilmesDao dao = new FilmesDao();
+        try{
+            model.addAttribute("lista", dao.getFilmesOscares());
+        }catch(Exception e){
+            
+        }
         return "oscar";
-    }
-    
-    @RequestMapping("/registrar")
-    public String registrar(Model model){
-        
-        return "registrar";
     }
     
 }

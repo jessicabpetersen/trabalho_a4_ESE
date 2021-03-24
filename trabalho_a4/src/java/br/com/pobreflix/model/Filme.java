@@ -17,9 +17,19 @@ public class Filme {
     private String nome;
     private int duracao;
     private int genero;
+    private double classificacao;
     private String oscares;
     private String atores;
 
+    public double getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(double classificacao) {
+        this.classificacao = classificacao;
+    }
+
+    
     public String getOscares() {
         return oscares;
     }
