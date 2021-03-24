@@ -24,20 +24,19 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Gênero</th>
                         <th scope="col">Duração</th>
-                        <th scope="col">Ano dos Oscares</th>
-                        <th scope="col">Elenco</th>
+                        <th scope="col">Classificação</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                <p>Nome do filme: <input type="text" id="nomeFilme" size="60"/></p>
                     <c:forEach items="${lista}" var="atributo">
                         <tr>
                             <th scope="row">${atributo.id}</th>
                             <td>${atributo.nome}</td>
                             <td>${atributo.genero}</td>
                             <td>${atributo.duracao}</td>
-                            <td>${atributo.oscares}</td>
-                            <td>${atributo.atores}</td>
+                            <td>${atributo.classificacao}</td>
                         </tr>
                     </c:forEach>
 

@@ -12,7 +12,18 @@ package br.com.pobreflix.model;
 public class Elenco {
     private int id;
     private int id_filme;
-    private int id_ator;
+    private int id_atores;
+    private String atores;
+
+    public int getId_atores() {
+        return id_atores;
+    }
+
+    public void setId_atores(int id_atores) {
+        this.id_atores = id_atores;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -30,13 +41,15 @@ public class Elenco {
         this.id_filme = id_filme;
     }
 
-    public int getId_ator() {
-        return id_ator;
+    public String getAtores() {
+        return atores;
     }
 
-    public void setId_ator(int id_ator) {
-        this.id_ator = id_ator;
+    public void setAtores(String atores) {
+        this.atores = atores;
     }
+
+    
     
     
 }
