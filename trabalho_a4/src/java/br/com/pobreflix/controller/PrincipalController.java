@@ -4,7 +4,9 @@ package br.com.pobreflix.controller;
 import br.com.pobreflix.dao.FilmesDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -34,6 +36,17 @@ public class PrincipalController {
         return "filmes";
     }
     
+    @RequestMapping(value={"/filmes/{nome}"}, method= RequestMethod.GET)
+    public String getFilme(@PathVariable("nome") String nome, Model model){
+        FilmesDao dao = new FilmesDao();
+        try{
+            model.addAttribute("lista", dao.getFilmesNome(nome));
+        }catch(Exception e){
+            
+        }
+        return "filmes";
+    }
+    
     @RequestMapping("/oscar")
     public String oscar(Model model){
         FilmesDao dao = new FilmesDao();
@@ -43,6 +56,17 @@ public class PrincipalController {
             
         }
         return "oscar";
+    }
+    
+    @RequestMapping("/elenco")
+    public String elenco(Model model){
+        FilmesDao dao = new FilmesDao();
+        try{
+            
+        }catch(Exception e){
+            
+        }
+        return "elenco";
     }
     
 }

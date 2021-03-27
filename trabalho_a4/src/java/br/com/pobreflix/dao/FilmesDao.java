@@ -46,6 +46,17 @@ public class FilmesDao {
         return lista;
     }
     
+    public List<Filme> getFilmesNome(String nome) throws SQLException{
+         List<Filme> listaTodosFIlmes = getFilmes();
+         List<Filme> listaNomes = new ArrayList<>();
+         for(Filme filme: listaTodosFIlmes){
+             if(filme.getNome().contains(nome)){
+                 listaNomes.add(filme);
+             }
+         }
+         return listaNomes;
+    }
+    
     public List<Filme> getFilmesOscares() throws SQLException{
         List<Filme> listaTodosFIlmes = getFilmes();
         List<Filme> listaOscares = new ArrayList<>();
@@ -88,7 +99,6 @@ public class FilmesDao {
              qtdd++;
         }
         classificacao = classificacao/qtdd;
-         
         conn.desconectar();
         return classificacao; 
     }
