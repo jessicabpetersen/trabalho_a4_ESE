@@ -5,6 +5,12 @@ import conexao.Conexao;
 
 public class AssistirDao {
     
+    private RegistrarServicosDao registrar;
+    
+    public void ClassificarDao() {
+        registrar = new RegistrarServicosDao();
+    }
+    
     public void assistir(int id_usuario, int id_filme) {
         Conexao conn = new Conexao();
         String sql = "INSERT INSTO public.filmes_assistidos (id, id_usuario, id_filme, dt_momento)"
@@ -12,6 +18,9 @@ public class AssistirDao {
                    + ", " + id_usuario + ", CURRENT_TIMESTAMP)";
 
         int res = conn.executaSql(sql);
+        if(res > 0) {
+            registrar.registrarServico(id_usuario, 4);
+        }
     }
     
 }
