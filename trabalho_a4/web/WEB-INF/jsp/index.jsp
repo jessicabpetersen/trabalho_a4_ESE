@@ -18,7 +18,6 @@
             <a href="elenco" class="btn btn-primary">Elenco</a>
             <a href="classificar" class="btn btn-primary">Classificar</a>
             <a href="assitir" class="btn btn-primary">Assitir</a>
-            <a href="registrar" class="btn btn-primary">Registrar</a>
         </div>
     <footer>
         <div class="container">

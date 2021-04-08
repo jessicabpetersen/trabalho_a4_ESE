@@ -7,11 +7,11 @@ public class ClassificarDao {
     
     private RegistrarServicosDao registrar;
     
-    public void ClassificarDao() {
+    public ClassificarDao() {
         registrar = new RegistrarServicosDao();
     }
     
-    public void incluirClassificacao(int id_filme, int id_usuario, int nota) {
+    public int incluirClassificacao(int id_filme, int id_usuario, int nota) {
         Conexao conn = new Conexao();
         String sql = "INSERT INSTO public.classificacoes (id, id_filme, id_usuario, sn_gostou, dt_momento)"
                    + " VALUES ( (SELECT COALESCE(MAX(id), 0) + 1 FROM public.classificacoes), " + id_filme +
@@ -21,9 +21,10 @@ public class ClassificarDao {
         if(res > 0) {
             registrar.registrarServico(id_usuario, 1);
         }
+        return res;
     }
     
-    public void alterarClassificacao(int id_classificacao, int nota, int id_usuario) {
+    public int alterarClassificacao(int id_classificacao, int nota, int id_usuario) {
         Conexao conn = new Conexao();
         String sql = "UPDATE public.classificacoes"
                    + "   SET sn_gostou = " + nota
@@ -33,9 +34,10 @@ public class ClassificarDao {
         if(res > 0) {
             registrar.registrarServico(id_usuario, 2);
         }
+        return res;
     }
     
-    public void excluirClassificacao(int id_classificacao, int id_usuario) {
+    public int excluirClassificacao(int id_classificacao, int id_usuario) {
         Conexao conn = new Conexao();
         String sql = "DELETE FROM public.classificacoes"
                   + " WHERE id = " + id_classificacao;
@@ -44,6 +46,7 @@ public class ClassificarDao {
         if(res > 0) {
             registrar.registrarServico(id_usuario, 3);
         }
+        return res;
     }
     
 }

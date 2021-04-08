@@ -7,7 +7,7 @@ public class AssistirDao {
     
     private RegistrarServicosDao registrar;
     
-    public void ClassificarDao() {
+    public AssistirDao() {
         registrar = new RegistrarServicosDao();
     }
     

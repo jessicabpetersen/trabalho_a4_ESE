@@ -1,6 +1,7 @@
 
 package br.com.pobreflix.controller;
 
+import br.com.pobreflix.dao.AssistirDao;
 import br.com.pobreflix.dao.FilmesDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,5 +45,15 @@ public class PrincipalController {
         }
         return "oscar";
     }
-    
+
+    @RequestMapping("/assitir")
+    public void assitir() {
+        AssistirDao dao = new AssistirDao();
+        try{
+           dao.assistir(0, 0);
+        }
+        catch(Exception e){
+            
+        }
+    }
 }
