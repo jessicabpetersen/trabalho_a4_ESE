@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: "Postgres@@"
+      POSTGRES_USER: rafael
+      POSTGRES_DB: script
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/script.sql:/docker-entrypoint-initdb.d/script.sql
+    networks:
+      - network
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "rafael.demiranda95@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "12350871@@"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - network
+
+  tomcat:
+    restart: always
+    image: tomcat:jre11-slim
+    container_name: tomcat
+    volumes:
+        - ./trabalho_a4/web/WEB-INF/jsp:/usr/local/tomcat/webapps/trabalho_a4
+    depends_on:
+        - postgres
+    ports:
+        - "8080:8080" 
+    expose:
+        - "8080"
+    networks:
+        - network
+    command: ["catalina.sh", "run"]
+  
+networks: 
+  network:
+    driver: bridge

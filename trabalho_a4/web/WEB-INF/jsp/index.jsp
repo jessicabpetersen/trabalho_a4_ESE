@@ -1,32 +1,77 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<jsp:include page="templates/header.jsp" />
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<div class="container tela-inicial">
+    <div class="row">
+        <div class="col">
+            <a href="">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
 
-        <title>PobreFlix</title>
-    </head>
+                        <div> <img src="movies.gif" alt="">
+                        </div>
+                        <h5 class="card-title text-center mt-3">Filmes</h5>
 
-    <body>
-        <div class="container">
-            <a href="login" class="btn btn-primary">Login</a>
-            <a href="filmes" class="btn btn-primary">Filmes</a>
-            <a href="oscar" class="btn btn-primary">Oscares</a>
-            <a href="elenco" class="btn btn-primary">Elenco</a>
-            <a href="classificar" class="btn btn-primary">Classificar</a>
-            <a href="assitir" class="btn btn-primary">Assitir</a>
-            <a href="registrar" class="btn btn-primary">Registrar</a>
+                    </div>
+                </div>
+            </a>
         </div>
-    <footer>
-        <div class="container">
-            <p>Acadêmicos:</p>
-            <p>Alexander Felipe Chiudini Ristow</p>
-            <p>Jéssica Bernardi Petersen</p>
-            <p>Rafael de Miranda</p>
+        <div class="col">
+            <a href="">
+                <div class="card h-100" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <div> <img src="oscar.gif" alt="">
+                        </div>
+                        <h5 class="card-title text-center mt-3">Oscar</h5>
+
+                    </div>
+                </div>
+            </a>
         </div>
-    </footer>
-    </body>
-</html>
+        <div class="col">
+            <a href="">
+                <div class="card h-100" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <div> <img src="elenco.gif" alt="">
+                        </div>
+                        <h5 class="card-title text-center mt-3">Elenco</h5>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6 d-flex justify-content-center">
+            <a href="">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <div> <img src="assistir.gif" alt="">
+                        </div>
+                        <h5 class="card-title text-center mt-3">Assistir</h5>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <a href="">
+                <div class="card h-100" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <div> <img src="classificacao.gif" alt="">
+                        </div>
+                        <h5 class="card-title text-center mt-3">Classificação</h5>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<jsp:include page="templates/footer.jsp" />
