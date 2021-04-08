@@ -79,4 +79,35 @@ public class PrincipalController {
         return "elenco";
     }
 
+    @RequestMapping("/assistir")
+    public String assistir() {
+        return "assistir";
+    }
+    
+    @RequestMapping("/classificar")
+    public String classificar() {
+        return "classificar";
+    }
+    
+    @RequestMapping(value = {"/classificar/{nota}{usuario}{filme}"}, method = RequestMethod.POST)
+    public String incluirClassificacao(@PathVariable("nota") int nota, @PathVariable("usuario") int usuario, @PathVariable("filme") int filme) {
+        ClassificarController classi = new ClassificarController();
+        classi.incluir(filme, usuario, nota);
+        return "classificar";
+    }
+    
+    @RequestMapping(value = {"/classificar/{classificacao}{nota}{usuario}"}, method = RequestMethod.POST)
+    public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("usuario") int usuario, @PathVariable("classificacao") int classificacao) {
+        ClassificarController classi = new ClassificarController();
+        classi.alterar(classificacao, nota, usuario);
+        return "classificar";
+    }
+    
+    @RequestMapping(value = {"/classificar/{classificacao}{usuario}"}, method = RequestMethod.POST)
+    public String excluirClassificacao(@PathVariable("usuario") int usuario, @PathVariable("classificacao") int classificacao) {
+        ClassificarController classi = new ClassificarController();
+        classi.excluir(classificacao, usuario);
+        return "classificar";
+    }
+    
 }
