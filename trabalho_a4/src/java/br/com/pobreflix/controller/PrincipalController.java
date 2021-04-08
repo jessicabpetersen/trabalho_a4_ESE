@@ -1,7 +1,6 @@
 package br.com.pobreflix.controller;
 
 import br.com.pobreflix.dao.FilmesDao;
-import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,17 +25,16 @@ public class PrincipalController {
     }
 
     @RequestMapping("/filmes")
-    public String filmes(Model model) throws SQLException {
+    public String filmes(Model model) {
         FilmesDao dao = new FilmesDao();
         System.out.println("oi");
-//        try {
+        try {
             model.addAttribute("lista", dao.getFilmes());
-//
-//        } catch (Exception e) {
-//
-//        }
+
+        } catch (Exception e) {
+
+        }
         
-        System.out.println("ttttttttttttttttttt");
         return "filmes";
     }
 
