@@ -26,11 +26,13 @@ public class FilmesDao {
         List<Filme> lista = new ArrayList<>();
         Conexao conn = new Conexao();
         String sql = "Select * from filmes";
-        
+                    System.out.println("entrou");
+
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Filme filme;
         while(rs.next()){
+            System.out.println(rs.getString("nome"));
             filme = new Filme();
             filme.setDuracao(rs.getInt("duracao"));
             filme.setGenero(rs.getInt("genero"));

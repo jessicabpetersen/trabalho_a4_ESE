@@ -6,13 +6,15 @@ services:
         container_name: postgres-container-a4
         restart: always
         environment:
-            POSTGRES_PASSWORD: 85ESE_A2
+            POSTGRES_PASSWORD: 85ESE_A4
             POSTGRES_USER: postgres
             POSTGRES_DB: postgres
         volumes:
             - ./db/script.sql:/docker-entrypoint-initdb.d/script.sql
         networks:
             - trabalho_a4
+        ports:
+            - "5432:5432"
     pgAdmin:
         restart: always
         image: dpage/pgadmin4
@@ -26,10 +28,10 @@ services:
             - trabalho_a4
         depends_on:
             - db
-    toncat:
+    tomcat:
         restart: always
         image: tomcat:jre11-slim
-        container_name: toncat-container-a4
+        container_name: tomcat-container-a4
         volumes:
             - ./webapps:/usr/local/tomcat/webapps/
         ports:
