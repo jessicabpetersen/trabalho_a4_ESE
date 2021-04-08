@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>PobreFlix</title>
-    <link href="assets/css/loader.css" rel="stylesheet" type="text/css" />
-    <script src="assets/js/loader.js"></script>
+    <link href="http://157.230.237.241/trabalhoa4/assets/css/loader.css" rel="stylesheet" type="text/css" />
+    <script src="http://157.230.237.241/trabalhoa4/assets/js/loader.js"></script>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,900" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="http://157.230.237.241/trabalhoa4/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://157.230.237.241/trabalhoa4/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="http://157.230.237.241/trabalhoa4/style.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
@@ -45,7 +45,7 @@
 
             <ul class="navbar-item theme-brand flex-row  text-center">
                 <li class="nav-item theme-text">
-                    <img src="pobreflix.png" class="navbar-logo" alt="logo">
+                    <img src="http://157.230.237.241/trabalhoa4/pobreflix.png" class="navbar-logo" alt="logo">
                 </li>
             </ul>
 
@@ -54,7 +54,7 @@
                 <li class="nav-item dropdown user-profile-dropdown">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <img src="assets/img/90x90.jpg" alt="avatar">
+                        <img src="http://157.230.237.241/trabalhoa4/assets/img/90x90.jpg" alt="avatar">
                     </a>
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="">

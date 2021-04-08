@@ -7,12 +7,12 @@
     <title>PobreFlix</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/authentication/form-2.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/forms/theme-checkbox-radio.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/forms/switches.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="http://157.230.237.241/trabalhoa4/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://157.230.237.241/trabalhoa4/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="http://157.230.237.241/trabalhoa4/assets/css/authentication/form-2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="http://157.230.237.241/trabalhoa4/assets/css/forms/theme-checkbox-radio.css">
+    <link rel="stylesheet" type="text/css" href="http://157.230.237.241/trabalhoa4/assets/css/forms/switches.css">
+    <link rel="stylesheet" type="text/css" href="http://157.230.237.241/trabalhoa4/style.css">
 </head>
 <body class="form">
     
@@ -23,7 +23,7 @@
                 <div class="form-container">
                     <div class="form-content">
 
-                        <div><img src="pobreflix.png" alt=""></div>
+                        <div><img src="http://157.230.237.241/trabalhoa4/pobreflix.png" alt=""></div>
                         
                         <form class="text-left">
                             <div class="form">

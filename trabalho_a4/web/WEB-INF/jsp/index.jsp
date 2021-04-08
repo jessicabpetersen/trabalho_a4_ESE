@@ -2,12 +2,12 @@
 
 <div class="container tela-inicial">
     <div class="row">
-        <div class="col">
+        <div class="col-md-4">
             <a href="">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
 
-                        <div> <img src="movies.gif" alt="">
+                        <div> <img src="http://157.230.237.241/trabalhoa4/movies.gif" alt="">
                         </div>
                         <h5 class="card-title text-center mt-3">Filmes</h5>
 
@@ -15,12 +15,12 @@
                 </div>
             </a>
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <a href="">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 
-                        <div> <img src="oscar.gif" alt="">
+                        <div> <img src="http://157.230.237.241/trabalhoa4/oscar.gif" alt="">
                         </div>
                         <h5 class="card-title text-center mt-3">Oscar</h5>
 
@@ -28,12 +28,12 @@
                 </div>
             </a>
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <a href="">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 
-                        <div> <img src="elenco.gif" alt="">
+                        <div> <img src="http://157.230.237.241/trabalhoa4/elenco.gif" alt="">
                         </div>
                         <h5 class="card-title text-center mt-3">Elenco</h5>
 
@@ -48,7 +48,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
 
-                        <div> <img src="assistir.gif" alt="">
+                        <div> <img src="http://157.230.237.241/trabalhoa4/assistir.gif" alt="">
                         </div>
                         <h5 class="card-title text-center mt-3">Assistir</h5>
 
@@ -61,9 +61,9 @@
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 
-                        <div> <img src="classificacao.gif" alt="">
+                        <div> <img src="http://157.230.237.241/trabalhoa4/classificacao.gif" alt="">
                         </div>
-                        <h5 class="card-title text-center mt-3">ClassificaÃ§Ã£o</h5>
+                        <h5 class="card-title text-center mt-3">Classificação</h5>
 
                     </div>
                 </div>
