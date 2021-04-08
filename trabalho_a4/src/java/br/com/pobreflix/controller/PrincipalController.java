@@ -1,7 +1,6 @@
 package br.com.pobreflix.controller;
 
 import br.com.pobreflix.dao.FilmesDao;
-import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PrincipalController {
 
-    @RequestMapping("/")
+    @RequestMapping("/inicial")
     public String iniciando() {
         return "login";
     }
@@ -26,17 +25,13 @@ public class PrincipalController {
     }
 
     @RequestMapping("/filmes")
-    public String filmes(Model model) throws SQLException {
+    public String filmes(Model model) {
         FilmesDao dao = new FilmesDao();
-        System.out.println("oi");
-//        try {
+        try {
             model.addAttribute("lista", dao.getFilmes());
-//
-//        } catch (Exception e) {
-//
-//        }
-        
-        System.out.println("ttttttttttttttttttt");
+        } catch (Exception e) {
+
+        }
         return "filmes";
     }
 
@@ -45,6 +40,17 @@ public class PrincipalController {
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getFilmesNome(nome));
+        } catch (Exception e) {
+
+        }
+        return "filmes";
+    }
+
+    @RequestMapping(value = {"/elenco/{id}"}, method = RequestMethod.GET)
+    public String getElenco(@PathVariable("nome") int id, Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+//            model.addAttribute("lista", dao.getFilmesNome(nome));
         } catch (Exception e) {
 
         }
@@ -66,7 +72,7 @@ public class PrincipalController {
     public String elenco(Model model) {
         FilmesDao dao = new FilmesDao();
         try {
-
+            model.addAttribute("lista", dao.getFilmesOscares());
         } catch (Exception e) {
 
         }
