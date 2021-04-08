@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+    db:
+        image: postgres
+        container_name: postgres-container-a4
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: 85ESE_A2
+            POSTGRES_USER: postgres
+            POSTGRES_DB: postgres
+        volumes:
+            - ./db/script.sql:/docker-entrypoint-initdb.d/script.sql
+        networks:
+            - trabalho_a4
+    pgAdmin:
+        restart: always
+        image: dpage/pgadmin4
+        container_name: pgadmin4-container-a4
+        ports:
+            - "16544:80"
+        environment:
+            PGADMIN_DEFAULT_EMAIL: 'admin@pgadmin.com'
+            PGADMIN_DEFAULT_PASSWORD: 'admin'
+        networks:
+            - trabalho_a4
+        depends_on:
+            - db
+    toncat:
+        restart: always
+        image: tomcat:jre11-slim
+        container_name: toncat-container-a4
+        volumes:
+            - ./webapps:/usr/local/tomcat/webapps/
+        ports:
+            - "8081:8081" 
+        expose:
+            - "8081"
+        depends_on:
+            - db
+        networks:
+            - trabalho_a4
+        command: ["catalina.sh", "run"]
+
+networks:
+    trabalho_a4:
+        driver: bridge
