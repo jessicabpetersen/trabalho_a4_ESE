@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PrincipalController {
     
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String iniciando(){
         return "login";
     }
