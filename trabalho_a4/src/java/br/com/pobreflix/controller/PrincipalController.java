@@ -154,4 +154,16 @@ public class PrincipalController {
         return "classificar";
     }
 
+
+    @RequestMapping("/elenco/{id}")
+    public String elenco(@PathVariable("id") int id, Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getElencoFilme(id));
+        } catch (Exception e) {
+
+        }
+        return "elenco";
+    }
+
 }
