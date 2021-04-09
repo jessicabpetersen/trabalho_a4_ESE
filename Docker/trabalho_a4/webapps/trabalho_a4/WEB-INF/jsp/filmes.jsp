@@ -10,9 +10,9 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Gênero</th>
-                    <th scope="col">Duração</th>
-                    <th scope="col">Classificação</th>
+                    <th scope="col">Gï¿½nero</th>
+                    <th scope="col">Duraï¿½ï¿½o</th>
+                    <th scope="col">Classificaï¿½ï¿½o</th>
                     <th scope="col">Visualizar</th>
                     <th scope="col">Assistir</th>
                 </tr>
@@ -26,8 +26,8 @@
                         <td>${atributo.genero}</td>
                         <td>${atributo.duracao}</td>
                         <td>${atributo.classificacao}</td>
-                        <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">VER</a></td>
-                        <td><a href="/trabalho_a4/assistir/${atributo.id}" class="btn btn-danger">ASSISTIR</a></td>
+                        <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">InformaÃ§Ãµes</a></td>
+                        <td><a href="/trabalho_a4/filmes/${atributo.id}" class="btn btn-danger">Assitir</a></td>
                     </tr>
                 </c:forEach>
 
