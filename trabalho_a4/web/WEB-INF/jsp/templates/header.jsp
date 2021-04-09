@@ -45,7 +45,7 @@
 
             <ul class="navbar-item theme-brand flex-row  text-center">
                 <li class="nav-item theme-text">
-                    <img src="http://157.230.237.241/trabalhoa4/pobreflix.png" class="navbar-logo" alt="logo">
+                    <img onclick="location.href='/trabalho_a4/index'" src="http://157.230.237.241/trabalhoa4/pobreflix.png" class="navbar-logo" alt="logo">
                 </li>
             </ul>
 

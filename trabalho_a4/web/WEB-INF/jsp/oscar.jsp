@@ -23,7 +23,7 @@
                                 <td>${atributo.nome}</td>
                                 <td>${atributo.genero}</td>
                                 <td>${atributo.duracao}</td>
-                                <td>${atributo.classificacao}</td>
+                                <td>${atributo.oscares}</td>
                             </tr>
                         </c:forEach>
 
