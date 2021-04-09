@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class FilmesDao {
 
-    public List<Filme> getFilmes() throws SQLException {
+public List<Filme> getFilmes() throws SQLException {
         List<Filme> lista = new ArrayList<>();
         Conexao conn = new Conexao();
         String sql = "Select * from filmes";
