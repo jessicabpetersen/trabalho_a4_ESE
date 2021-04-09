@@ -20,6 +20,7 @@ public class Filme {
     private double classificacao;
     private String oscares;
     private String atores;
+    private String elemento;
 
     public double getClassificacao() {
         return classificacao;
@@ -77,6 +78,14 @@ public class Filme {
 
     public void setGenero(int genero) {
         this.genero = genero;
+    }
+
+    public String getElemento() {
+        return elemento;
+    }
+
+    public void setElemento(String elemento) {
+        this.elemento = elemento;
     }
     
 }

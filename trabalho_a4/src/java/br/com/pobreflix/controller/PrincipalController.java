@@ -31,7 +31,7 @@ public class PrincipalController {
         FilmesDao dao = new FilmesDao();
 
         try {
-            model.addAttribute("lista", dao.getFilmes());
+            model.addAttribute("lista", dao.getFilmes(0));
             System.out.println(model);
         } catch (Exception e) {
 
@@ -87,7 +87,7 @@ public class PrincipalController {
     public String assistir(Model model) {
         FilmesDao dao = new FilmesDao();
         try {
-            model.addAttribute("lista", dao.getFilmes());
+            model.addAttribute("lista", dao.getFilmes(0));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -103,7 +103,7 @@ public class PrincipalController {
     public String incluirClassificacao(Model model) {
         FilmesDao dao = new FilmesDao();
         try {
-            model.addAttribute("lista", dao.getFilmes());
+            model.addAttribute("lista", dao.getFilmes(1));
         } catch (Exception e) {
             e.printStackTrace();
         }
