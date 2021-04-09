@@ -55,7 +55,7 @@ public class ClassificarDao {
         return res;
     }
     
-    public List<Classificar> getClassificacoes(int tipo) throws SQLException {
+    public List<Classificar> getClassificacoes() throws SQLException {
         List<Classificar> lista = new ArrayList<>();
         Conexao conn = new Conexao();
         
@@ -69,20 +69,12 @@ public class ClassificarDao {
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Classificar classi;
-        String elemento;
         while (rs.next()) {
-            if(tipo == 1) {
-                elemento = "<input type='radio' id='alterar' name='alterar' value='" + rs.getInt("id") +"'>";
-            }
-            else {
-                elemento = "<input type='radio' id='excluir' name='excluir' value='" + rs.getInt("id") +"'>";
-            }
             classi = new Classificar();
             classi.setData(rs.getString("dt_momento"));
             classi.setId(rs.getInt("id"));
             classi.setNota(rs.getInt("sn_gostou"));
             classi.setNomeFilme(rs.getString("nome"));
-            classi.setElemento(elemento);
             lista.add(classi);
         }
         

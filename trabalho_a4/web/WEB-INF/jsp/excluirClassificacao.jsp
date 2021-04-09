@@ -9,7 +9,7 @@
                     <th scope="col">Filme</th>
                     <th scope="col">Nota</th>
                     <th scope="col">Data</th>
-                    <th scope="col"></th>
+                    <th scope="col">Excluir</th>
                 </tr>
             </thead>
 
@@ -20,7 +20,7 @@
                         <td>${atributo.nomeFilme}</td>
                         <td>${atributo.nota}</td>
                         <td>${atributo.data}</td>
-                        <th scope="row">${atributo.elemento}</th>
+                        <td><a href="/trabalho_a4/excluirClassificacao/${atributo.id}" class="btn btn-danger">EXCLUIR</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

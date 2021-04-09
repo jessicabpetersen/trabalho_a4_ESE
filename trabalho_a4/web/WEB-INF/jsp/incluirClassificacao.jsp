@@ -9,7 +9,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Gênero</th>
                     <th scope="col">Duração</th>
-                    <th scope="col"></th>
+                    <th scope="col">Classificar</th>
                 </tr>
             </thead>
 
@@ -20,7 +20,7 @@
                         <td>${atributo.nome}</td>
                         <td>${atributo.genero}</td>
                         <td>${atributo.duracao}</td>
-                        <td>${atributo.incluir}</td>
+                        <td><a href="/trabalho_a4/incluirClassificacao/${atributo.id}${nota}" class="btn btn-danger">INCLUIR</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -29,13 +29,8 @@
     <div class="container">
         <div class="row">
             <div class="field-wrapper input">
-                <span>Nota:&nbsp;</span><input type="number" maxlength="2" min="0" max="10" size="10" required>
+                <span>Nota:&nbsp;</span><input ${nota} id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
             </div>
-        </div>
-    </div>
-    <div class="d-sm-flex justify-content-between">
-        <div class="field-wrapper">
-            <button type="submit" class="btn btn-primary" value="">Classificar</button>
         </div>
     </div>
 </form>

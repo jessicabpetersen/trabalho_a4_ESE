@@ -26,6 +26,7 @@
                         <td>${atributo.duracao}</td>
                         <td>${atributo.classificacao}</td>
                         <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">VER</a></td>
+                        <td><a href="/trabalho_a4/filmes/${atributo.id}" class="btn btn-danger">ASSISTIR</a></td>
                     </tr>
                 </c:forEach>
 
