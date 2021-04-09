@@ -32,20 +32,18 @@ public class FilmesDao {
         Filme filme;
         while (rs.next()) {
             filme = new Filme();
+            filme.setClassificacao(10);
             filme.setDuracao(rs.getInt("duracao"));
             filme.setGenero(rs.getInt("genero"));
             filme.setId(rs.getInt("id"));
             filme.setNome(rs.getString("nome"));
-            System.out.println("id:" filme.getId());
-            filme.setOscares(getOscar(filme.getId(), conn));
-            List<Elenco> elenco = getElenco(filme.getId(), conn);
-            filme.setAtores(getAtores(elenco, conn));
-            filme.setClassificacao(getClassificacao(filme.getId(), conn));
-            System.out.println("filmes" + filme);
+//            filme.setClassificacao(getClassificacao(filme.getId(), conn));
+//            System.out.println("classificacao:" + filme.getClassificacao());
+//            System.out.println("filmes" + filme);
             lista.add(filme);
 
         }
-        System.out.println("filmes:" + lista);
+//        System.out.println("filmes:" + lista);
         conn.desconectar();
         return lista;
     }
@@ -62,6 +60,7 @@ public class FilmesDao {
     }
 
     public List<Filme> getFilmesOscares() throws SQLException {
+        System.out.println("entrou getFilmesOscares");
         List<Filme> listaTodosFIlmes = getFilmes();
         List<Filme> listaOscares = new ArrayList<>();
         for (Filme filme : listaTodosFIlmes) {
@@ -73,6 +72,7 @@ public class FilmesDao {
     }
 
     public String getOscar(int id, Conexao conn) throws SQLException {
+        System.out.println("entrou getoscar");
         String sql = "Select * from oscar_melhor_filme where id_filme = " + id;
 
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
@@ -84,44 +84,54 @@ public class FilmesDao {
                 anoOscares += " / ";
             }
             anoOscares += rs.getInt("ano");
+            System.out.println("oscar ano:" + rs.getInt("ano"));
             a++;
         }
         return anoOscares;
     }
 
     public int getClassificacao(int idFilme, Conexao conn) throws SQLException {
+        System.out.println("entrou getclassificacao");
         String sql = "Select * from classificacoes where id_filme = " + idFilme;
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         int classificacao = 0;
         int qtdd = 0;
         while (rs.next()) {
+            System.out.println("classificacao: " + rs.getInt("sn_gostou"));
             classificacao += rs.getInt("sn_gostou");
             qtdd++;
         }
-        classificacao = classificacao / qtdd;
+        System.out.println("classificacao total: " + classificacao + "qntdd:" + qtdd);
+        if (qtdd != 0) {
+            classificacao = classificacao / qtdd;
+        } else {
+            classificacao = 0;
+        }
+
         return classificacao;
     }
 
-    public List<Ator> getAtoresFromElenco(List<Elenco> elenco, Conexao conn) throws SQLException {
+    public String getAtoresFromElenco(List<Elenco> elenco, Conexao conn) throws SQLException {
+        System.out.println("entrou getatoresfromelenco");
         List<Ator> lista = new ArrayList<>();
+        String elencoa = "";
         for (Elenco elenco1 : elenco) {
             String sql = "Select * from ator where id = " + elenco1.getAtores();
             PreparedStatement ps = conn.getConexao().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Ator ator = new Ator();
-                ator.setNome(rs.getString("nome"));
-                ator.setId(rs.getInt("id"));
-                lista.add(ator);
+
+                elencoa += rs.getString("nome");
             }
 
         }
 
-        return lista;
+        return elencoa;
     }
 
     public List<Elenco> getElenco(int id, Conexao conn) throws SQLException {
+        System.out.println("entrou getelenco");
         String sql = "Select * from elenco where id_filme = " + id;
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -137,6 +147,7 @@ public class FilmesDao {
     }
 
     public String getAtores(int id, Conexao conn) throws SQLException {
+        System.out.println("entrou A");
         String sql = "Select * from ator where id = " + id;
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -148,6 +159,7 @@ public class FilmesDao {
     }
 
 //	public List<Ator> getElencoFilme(int id)throws SQLException {
+//		System.out.println("entrou getElencoFIlme");
 //		List<Elenco> elenco = getElenco(id);
 //		return getAtoresFromElenco(elenco);
 //	}
