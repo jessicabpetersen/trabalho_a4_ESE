@@ -1,5 +1,7 @@
 package br.com.pobreflix.controller;
 
+import br.com.pobreflix.dao.AssistirDao;
+import br.com.pobreflix.dao.ClassificarDao;
 import br.com.pobreflix.dao.FilmesDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PrincipalController {
 
-    @RequestMapping("/inicial")
+    @RequestMapping("/")
     public String iniciando() {
         return "login";
     }
@@ -35,7 +37,7 @@ public class PrincipalController {
         FilmesDao dao = new FilmesDao();
 
         try {
-            model.addAttribute("lista", dao.getFilmes(0));
+            model.addAttribute("lista", dao.getFilmes());
         } catch (Exception e) {
 
         }
@@ -98,9 +100,11 @@ public class PrincipalController {
         return "elenco";
     }
 
-    @RequestMapping("/assistir")
-    public String assistir() {
-        return "assistir";
+    @RequestMapping("/assistir/{id}")
+    public String assistir(@PathVariable("id") int id, Model model) {
+        AssistirDao dao = new AssistirDao();
+        dao.assistir(1, id);
+        return "index";
     }
 
     @RequestMapping("/classificar")
@@ -108,24 +112,57 @@ public class PrincipalController {
         return "classificar";
     }
 
-    @RequestMapping(value = {"/classificar/{nota}{usuario}{filme}"}, method = RequestMethod.POST)
-    public String incluirClassificacao(@PathVariable("nota") int nota, @PathVariable("usuario") int usuario, @PathVariable("filme") int filme) {
+    @RequestMapping("/incluirClassificacao")
+    public String incluirClassificacao(Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getFilmes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "incluirClassificacao";
+    }
+
+    @RequestMapping("/incluirClassificacao/{filme}{nota}")
+    public String incluirClassificacao(@PathVariable("nota") int nota, @PathVariable("filme") int filme) {
         ClassificarController classi = new ClassificarController();
-        classi.incluir(filme, usuario, nota);
+        classi.incluir(filme, 1, nota);
         return "classificar";
     }
 
-    @RequestMapping(value = {"/classificar/{classificacao}{nota}{usuario}"}, method = RequestMethod.POST)
-    public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("usuario") int usuario, @PathVariable("classificacao") int classificacao) {
+    @RequestMapping("/alterarClassificacao")
+    public String alterarClassificacao(Model model) {
+        ClassificarDao dao = new ClassificarDao();
+        try {
+            model.addAttribute("lista", dao.getClassificacoes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "alterarClassificacao";
+    }
+    
+    @RequestMapping("/alterarClassificacao/{classificacao}{nota}")
+    public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("classificacao") int classificacao) {
         ClassificarController classi = new ClassificarController();
-        classi.alterar(classificacao, nota, usuario);
+        classi.alterar(classificacao, nota, 1);
         return "classificar";
     }
 
-    @RequestMapping(value = {"/classificar/{classificacao}{usuario}"}, method = RequestMethod.POST)
-    public String excluirClassificacao(@PathVariable("usuario") int usuario, @PathVariable("classificacao") int classificacao) {
+    @RequestMapping("/excluirClassificacao")
+    public String excluirClassificacao(Model model) {
+        ClassificarDao dao = new ClassificarDao();
+        try {
+            model.addAttribute("lista", dao.getClassificacoes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "excluirClassificacao";
+    }
+    
+    @RequestMapping("/excluirClassificacao/{classificacao}")
+    public String excluirClassificacao(@PathVariable("classificacao") int classificacao) {
         ClassificarController classi = new ClassificarController();
-        classi.excluir(classificacao, usuario);
+        classi.excluir(classificacao, 1);
         return "classificar";
     }
 

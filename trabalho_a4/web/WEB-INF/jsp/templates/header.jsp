@@ -163,14 +163,6 @@
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="assistir" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                        
-                                <span>Assistir</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="menu">
                         <a href="classificar" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                             

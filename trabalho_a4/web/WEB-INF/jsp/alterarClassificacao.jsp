@@ -9,7 +9,7 @@
                     <th scope="col">Filme</th>
                     <th scope="col">Nota</th>
                     <th scope="col">Data</th>
-                    <th scope="col"></th>
+                    <th scope="col">Alterar Classificação</th>
                 </tr>
             </thead>
 
@@ -20,7 +20,7 @@
                         <td>${atributo.nomeFilme}</td>
                         <td>${atributo.nota}</td>
                         <td>${atributo.data}</td>
-                        <th scope="row">${atributo.elemento}</th>
+                        <td><a href="/trabalho_a4/alterarClassificacao/${atributo.id}${nota}" class="btn btn-danger">ALTERAR</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -29,13 +29,8 @@
         <div class="container">
             <div class="row">
                 <div class="field-wrapper input">
-                    <span>Nota:&nbsp;</span><input type="number" maxlength="2" min="0" max="10" size="10" required>
+                    <span>Nota:&nbsp;</span><input ${nota} id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
                 </div>
-            </div>
-        </div>
-        <div class="d-sm-flex justify-content-between">
-            <div class="field-wrapper">
-                <button type="submit" class="btn btn-primary" value="">Alterar</button>
             </div>
         </div>
     </div>

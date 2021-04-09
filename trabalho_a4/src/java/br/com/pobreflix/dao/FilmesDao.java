@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class FilmesDao {
 
-    public List<Filme> getFilmes(int tipo) throws SQLException {
+    public List<Filme> getFilmes() throws SQLException {
         List<Filme> lista = new ArrayList<>();
         Conexao conn = new Conexao();
         String sql = "Select * from filmes";
@@ -37,9 +37,6 @@ public class FilmesDao {
             filme.setGenero(rs.getInt("genero"));
             filme.setId(rs.getInt("id"));
             filme.setNome(rs.getString("nome"));
-            if(tipo == 1) {
-                filme.setElemento("<input type='radio' id='alterar' name='alterar' value='" + rs.getInt("id") +"'>");
-            }
 //            filme.setClassificacao(getClassificacao(filme.getId(), conn));
 //            System.out.println("classificacao:" + filme.getClassificacao());
 //            System.out.println("filmes" + filme);
@@ -52,7 +49,7 @@ public class FilmesDao {
     }
 
     public List<Filme> getFilmesNome(String nome) throws SQLException {
-        List<Filme> listaTodosFIlmes = getFilmes(0);
+        List<Filme> listaTodosFIlmes = getFilmes();
         List<Filme> listaNomes = new ArrayList<>();
         for (Filme filme : listaTodosFIlmes) {
             if (filme.getNome().contains(nome)) {
@@ -64,7 +61,7 @@ public class FilmesDao {
 
     public List<Filme> getFilmesOscares() throws SQLException {
         System.out.println("entrou getFilmesOscares");
-        List<Filme> listaTodosFIlmes = getFilmes(0);
+        List<Filme> listaTodosFIlmes = getFilmes();
         List<Filme> listaOscares = new ArrayList<>();
         for (Filme filme : listaTodosFIlmes) {
             if (!filme.getOscares().isEmpty()) {

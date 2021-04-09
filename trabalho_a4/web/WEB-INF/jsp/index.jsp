@@ -44,19 +44,6 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-6 d-flex justify-content-center">
-            <a href="assistir">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-
-                        <div> <img src="http://157.230.237.241/trabalhoa4/assistir.gif" alt="">
-                        </div>
-                        <h5 class="card-title text-center mt-3">Assistir</h5>
-
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center">
             <a href="classificar">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
