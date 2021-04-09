@@ -55,6 +55,7 @@ public class PrincipalController {
         }
         return "filmes";
     }
+    
     @RequestMapping("/filmes/{id}")
     public String getFilme(@PathVariable("id") int id, Model model) {
         FilmesDao dao = new FilmesDao();
