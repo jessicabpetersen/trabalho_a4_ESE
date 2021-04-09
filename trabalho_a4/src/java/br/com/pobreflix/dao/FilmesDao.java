@@ -37,13 +37,9 @@ public class FilmesDao {
             filme.setGenero(rs.getInt("genero"));
             filme.setId(rs.getInt("id"));
             filme.setNome(rs.getString("nome"));
-//            filme.setClassificacao(getClassificacao(filme.getId(), conn));
-//            System.out.println("classificacao:" + filme.getClassificacao());
-//            System.out.println("filmes" + filme);
             lista.add(filme);
 
         }
-//        System.out.println("filmes:" + lista);
         conn.desconectar();
         return lista;
     }

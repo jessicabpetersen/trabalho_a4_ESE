@@ -43,14 +43,14 @@
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-md-12 d-flex justify-content-center">
             <a href="classificar">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 
                         <div> <img src="http://157.230.237.241/trabalhoa4/classificacao.gif" alt="">
                         </div>
-                        <h5 class="card-title text-center mt-3">Classificação</h5>
+                        <h5 class="card-title text-center mt-3">Classificaï¿½ï¿½o</h5>
 
                     </div>
                 </div>
