@@ -55,6 +55,20 @@ public List<Filme> getFilmes() throws SQLException {
         }
         return listaNomes;
     }
+    
+    public List<Filme> getFilmeString(String nome) throws SQLException {
+        List<Filme> listafilmes = getFilmes();
+        List<Filme> listaNomes = new ArrayList<>();
+        for (Filme filme : listafilmes) {
+            System.out.println("nome do filme: "+filme.getNome());
+            System.out.println("nome da pesquisa: "+nome);
+            System.out.println("contem? "+filme.getNome().contains(nome));
+            if (filme.getNome().contains(nome)) {
+                listaNomes.add(filme);
+            }
+        }
+        return listaNomes;
+    }
 
     public List<Filme> getFilmesOscares() throws SQLException {
         System.out.println("entrou getFilmesOscares");

@@ -56,6 +56,17 @@ System.out.println("oi");
         }
         return "filmes";
     }
+    
+    @RequestMapping("/filmes/string/{nome}")
+    public String getFilmeNome(@PathVariable("nome") String nome, Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getFilmeString(nome));
+        } catch (Exception e) {
+
+        }
+        return "filmes";
+    }
 
     @RequestMapping(value = {"/elenco/{id}"}, method = RequestMethod.GET)
     public String getElenco(@PathVariable("id") int id, Model model) {
