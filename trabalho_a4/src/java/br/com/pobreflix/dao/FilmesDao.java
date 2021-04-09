@@ -14,6 +14,7 @@ import conexao.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public List<Filme> getFilmes() throws SQLException {
 
     public void excluirClassificacao(int idFilme, int idUsuario) throws SQLException {
         Conexao conn = new Conexao();
-         String sql = "delete * from classificacoes where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
+         String sql = "delete from classificacoes where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
          PreparedStatement ps = conn.getConexao().prepareStatement(sql);
          ps.executeQuery();
         conn.desconectar();
@@ -271,15 +272,17 @@ public List<Filme> getFilmes() throws SQLException {
         
          while(rs.next()){
              System.out.println("eh update");
-             sql2 = "update * from classificacoes set nota = "+nota+" where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
+             sql2 = "update  classificacoes SET sn_gostou = "+nota+" where id_filme = "+idFilme+" and id_usuario = "+idUsuario+";";
              
          }
          System.out.println(sql2);
           System.out.println(sql2.equals(""));
          if(sql2.equals("")){
              System.out.println("eh add");
-             sql2 = "insert into classificacoes(id_filme,id_usuario,sn_gostou) values("+idFilme+","+idUsuario+","+nota+")";
+             Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
+             sql2 = "insert into classificacoes(id_filme,id_usuario,sn_gostou, dt_momento) values("+idFilme+","+idUsuario+","+nota+",'"+dataDeHoje+"');";
          }
+         System.out.println(sql2);
          PreparedStatement ps2 = conn.getConexao().prepareStatement(sql2);
          ps2.executeQuery();
         conn.desconectar();
