@@ -37,6 +37,7 @@ public class FilmesDao {
             filme.setGenero(rs.getInt("genero"));
             filme.setId(rs.getInt("id"));
             filme.setNome(rs.getString("nome"));
+            filme.setOscares(this.getOscar(rs.getInt("id"), conn));
             lista.add(filme);
 
         }

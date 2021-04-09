@@ -1,6 +1,5 @@
 <jsp:include page="templates/header.jsp" />
 
-<form method="POST" action="">
     <div class="container">
         <table class="table">
             <thead class="thead-dark">
@@ -34,6 +33,5 @@
             </div>
         </div>
     </div>
-</form>
 
 <jsp:include page="templates/footer.jsp" />

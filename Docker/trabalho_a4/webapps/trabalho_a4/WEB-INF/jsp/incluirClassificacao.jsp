@@ -1,6 +1,5 @@
 <jsp:include page="templates/header.jsp" />
 
-<form method="POST" action="">
     <div class="container">
         <table class="table">
             <thead class="thead-dark">
@@ -25,14 +24,13 @@
                 </c:forEach>
             </tbody>
         </table>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="field-wrapper input">
-                <span>Nota:&nbsp;</span><input ${nota} id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
+        <div class="container">
+            <div class="row">
+                <div class="field-wrapper input">
+                    <span>Nota:&nbsp;</span><input ${nota} id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
+                </div>
             </div>
         </div>
     </div>
-</form>
 
 <jsp:include page="templates/footer.jsp" />
