@@ -3,7 +3,7 @@
 <div class="container tela-inicial">
     <div class="row">
         <div class="col-md-4">
-            <a href="filmes">
+            <a href="/trabalho_a4/filmes">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
 
@@ -16,7 +16,7 @@
             </a>
         </div>
         <div class="col-md-4">
-            <a href="oscar">
+            <a href="/trabalho_a4/oscar">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 
@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="col-md-4">
-            <a href="elenco">
+            <a href="/trabalho_a4/elenco">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 
@@ -44,7 +44,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12 d-flex justify-content-center">
-            <a href="classificar">
+            <a href="/trabalho_a4/classificar">
                 <div class="card h-100" style="width: 18rem;">
                     <div class="card-body">
 

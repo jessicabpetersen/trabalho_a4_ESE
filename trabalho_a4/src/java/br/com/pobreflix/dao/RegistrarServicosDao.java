@@ -12,9 +12,8 @@ public class RegistrarServicosDao {
      */
     public void registrarServico(int id_usuario, int id_servico) {
         Conexao conn = new Conexao();
-        String sql = "INSERT INSTO public.servicos_usados (id, id_usuario, id_servico, dt_momento)"
-                   + " VALUES ( (SELECT COALESCE(MAX(id), 0) + 1 FROM public.servicos_usados), " + id_usuario
-                   + ", " + id_servico + ", CURRENT_TIMESTAMP)";
+        String sql = "INSERT INSTO public.servicos_usados (id_usuario, id_servico, dt_momento)"
+                   + " VALUES ( " + id_usuario + ", " + id_servico + ", CURRENT_TIMESTAMP)";
 
         conn.executaSql(sql);
     }

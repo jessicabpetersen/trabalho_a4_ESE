@@ -36,6 +36,7 @@ public class Conexao {
 
     public int executaSql(String sql) {
         try {
+            this.conectar();
             Statement stm = conn.createStatement();
             int res = stm.executeUpdate(sql);
             conn.close();
