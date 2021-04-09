@@ -9,7 +9,9 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
+                    <th scope="col">Nome do Filme</th>
+                    <th scope="col">Atores</th>
+                     <th scope="col">Visualizar</th>
                 </tr>
             </thead>
 
@@ -18,6 +20,8 @@
                     <tr>
                         <th scope="row">${atributo.id}</th>
                         <td>${atributo.nome}</td>
+                        <td>${atributo.atores}</td>
+                        <td><a href="/trabalho_a4/elenco/${atributo.id}" class="btn btn-danger">Informações</a></td>
                     </tr>
                 </c:forEach>
 

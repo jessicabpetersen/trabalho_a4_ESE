@@ -65,11 +65,12 @@ System.out.println("oi");
         } catch (Exception e) {
 
         }
-        return "filmes";
+        return "elenco";
     }
 
     @RequestMapping("/oscar")
     public String oscar(Model model) {
+        System.out.println("entrou oscar");
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getFilmesOscares());
@@ -83,7 +84,7 @@ System.out.println("oi");
     public String elenco(Model model) {
         FilmesDao dao = new FilmesDao();
         try {
-            model.addAttribute("lista", dao.getFilmesOscares());
+            model.addAttribute("lista", dao.getElencoFilmea());
         } catch (Exception e) {
 
         }
