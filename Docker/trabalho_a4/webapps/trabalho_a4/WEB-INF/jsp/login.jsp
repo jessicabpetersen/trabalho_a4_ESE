@@ -25,7 +25,7 @@
 
                         <div><img src="http://157.230.237.241/trabalhoa4/pobreflix.png" alt=""></div>
                         
-                        <form class="text-left">
+                        <form class="text-left" action="logando" method="post">
                             <div class="form">
 
                                 <div id="username-field" class="field-wrapper input">
@@ -47,13 +47,6 @@
                                         <button type="submit" class="btn btn-primary" value="">Entrar</button>
                                     </div>
                                 </div>
-
-                              
-
-                              
-
-                                <p class="signup-link">Possui registro? <a href="auth_register_boxed.html">Criar conta</a></p>
-
                             </div>
                         </form>
 

@@ -5,14 +5,18 @@
 
 <div class="container">
 
+    <form method="post" action="/trabalho_a4/filmes/nome">
+        <p>Nome do filme: </p>
+        <input id="nome" name="nome" type="text" class="form-control" placeholder="">
+    </form>
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Gï¿½nero</th>
-                <th scope="col">Duraï¿½ï¿½o</th>
-                <th scope="col">Classificaï¿½ï¿½o</th>
+                <th scope="col">Gênero</th>
+                <th scope="col">Duração</th>
+                <th scope="col">Classificação</th>
                 <th scope="col">Visualizar</th>
                 <th scope="col">Assistir</th>
                 <th scope="col">Classificar</th>
@@ -28,17 +32,17 @@
                     <td>${atributo.genero}</td>
                     <td>${atributo.duracao}</td>
                     <td>${atributo.classificacao}</td>
-                    <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">InformaÃ§Ãµes</a></td>
+                    <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">Informações</a></td>
                     <td><a href="/trabalho_a4/assistir/${atributo.id}" class="btn btn-danger">Assitir</a></td>
-                    <td><form method="post" action="classificar/add/${atributo.id}">
+                    <td><form method="post" action="/trabalho_a4/classificar/add/${atributo.id}">
                             <input id="id" name="id" value="${atributo.id}" type="hidden">
                         <input id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
                         <button type="submit" class="btn btn-danger">Salvar</button>
-                        </form></a></td>
+                        </form></td>
                     
-                     <td><form method="post" action="classificar/excluir/${atributo.id}">
+                     <td><form method="post" action="/trabalho_a4/classificar/excluir/${atributo.id}">
                             <input id="id" name="id" value="${atributo.id}" type="hidden">
-                        <button type="submit" class="btn btn-danger">Excluir classificacao</button>
+                        <button type="submit" class="btn btn-danger">Excluir classificação</button>
                         </form></a></td>
                 </tr>
             </c:forEach>

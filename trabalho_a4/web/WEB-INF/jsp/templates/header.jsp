@@ -49,10 +49,6 @@
                 <ul class="navbar-item flex-row ml-md-auto">
 
                     <li class="nav-item dropdown user-profile-dropdown">
-                        <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <img src="http://157.230.237.241/trabalhoa4/assets/img/90x90.jpg" alt="avatar">
-                        </a>
                         <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                             <div class="">
                                 <div class="dropdown-item">
@@ -154,14 +150,6 @@
                                 <div class="">
 
                                     <span>Elenco</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="menu">
-                            <a href="/trabalho_a4/classificar" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-
-                                    <span>Classificar</span>
                                 </div>
                             </a>
                         </li>

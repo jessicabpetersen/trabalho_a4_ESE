@@ -42,21 +42,6 @@
             </a>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-md-12 d-flex justify-content-center">
-            <a href="/trabalho_a4/classificar">
-                <div class="card h-100" style="width: 18rem;">
-                    <div class="card-body">
-
-                        <div> <img src="http://157.230.237.241/trabalhoa4/classificacao.gif" alt="">
-                        </div>
-                        <h5 class="card-title text-center mt-3">Classifica��o</h5>
-
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
 </div>
 
 

@@ -47,13 +47,6 @@
                                         <button type="submit" class="btn btn-primary" value="">Entrar</button>
                                     </div>
                                 </div>
-
-                              
-
-                              
-
-                                <p class="signup-link">Possui registro? <a href="auth_register_boxed.html">Criar conta</a></p>
-
                             </div>
                         </form>
 

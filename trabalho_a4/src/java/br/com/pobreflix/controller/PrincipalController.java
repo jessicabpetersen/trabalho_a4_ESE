@@ -63,13 +63,27 @@ public class PrincipalController {
         } catch (Exception e) {
 
         }
-        
-        
+
         return "filmes";
     }
 
     @RequestMapping("/filmes/{nome}")
     public String getFilme(@PathVariable("nome") String nome, Model model,HttpSession session) {
+        System.out.println("logado"+session.getAttribute("usuario"));
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getFilmesNome(nome));
+        } catch (Exception e) {
+
+        }
+        return "filmes";
+    }
+    
+    @RequestMapping("/filmes/nome")
+    public String getFilmeForm(String nome, Model model,HttpSession session) {
         System.out.println("logado"+session.getAttribute("usuario"));
         if(session.getAttribute("usuario") == null){
             return "login";
