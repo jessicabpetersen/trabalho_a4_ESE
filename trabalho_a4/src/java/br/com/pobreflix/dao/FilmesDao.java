@@ -155,8 +155,8 @@ public class FilmesDao {
         }
         return atores;
     }
-
-public Ator getAtorFromId(Int id, Conexao conn)  throws SQLException{
+    
+    public Ator getAtorFromId(int id, Conexao conn)  throws SQLException{
 	String sql = "Select * from ator where id ="+id;
 	PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
