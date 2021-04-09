@@ -1,6 +1,5 @@
 package br.com.pobreflix.controller;
 
-import br.com.pobreflix.dao.ClassificarDao;
 import br.com.pobreflix.dao.FilmesDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,17 +36,16 @@ public class PrincipalController {
 
         try {
             model.addAttribute("lista", dao.getFilmes(0));
-            System.out.println(model);
         } catch (Exception e) {
 
         }
         return "filmes";
     }
 
-    @RequestMapping(value = {"/filmes/{nome}"}, method = RequestMethod.GET)
+    @RequestMapping("/filmes/{nome}")
     public String getFilme(@PathVariable("nome") String nome, Model model) {
-        System.out.println(nome);
         FilmesDao dao = new FilmesDao();
+        System.out.println(nome);
         try {
             model.addAttribute("lista", dao.getFilmesNome(nome));
         } catch (Exception e) {
@@ -90,13 +88,7 @@ public class PrincipalController {
     }
 
     @RequestMapping("/assistir")
-    public String assistir(Model model) {
-        FilmesDao dao = new FilmesDao();
-        try {
-            model.addAttribute("lista", dao.getFilmes(0));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String assistir() {
         return "assistir";
     }
 

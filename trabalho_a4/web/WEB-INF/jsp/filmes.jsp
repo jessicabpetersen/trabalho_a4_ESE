@@ -13,16 +13,11 @@
                     <th scope="col">G�nero</th>
                     <th scope="col">Dura��o</th>
                     <th scope="col">Classifica��o</th>
+                    <th scope="col">Visualizar</th>
                 </tr>
             </thead>
 
             <tbody>
-                <form:form method="POST" action="/filme/${nome}">
-                    <div class="form-group">Nome do filme: <input type="text" name="nome" id="nome" size="60"
-                            required /></div>
-                    <div class="form-group"><input type="submit" id="submit" class="btn btn-primary"
-                            value="Pesquisar" /></div>
-                </form:form>
                 <c:forEach items="${lista}" var="atributo">
                     <tr>
                         <th scope="row">${atributo.id}</th>
@@ -30,6 +25,7 @@
                         <td>${atributo.genero}</td>
                         <td>${atributo.duracao}</td>
                         <td>${atributo.classificacao}</td>
+                        <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">VER</a></td>
                     </tr>
                 </c:forEach>
 
