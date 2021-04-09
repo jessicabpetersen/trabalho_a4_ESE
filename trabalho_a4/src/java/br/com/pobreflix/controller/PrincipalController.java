@@ -3,6 +3,10 @@ package br.com.pobreflix.controller;
 import br.com.pobreflix.dao.AssistirDao;
 import br.com.pobreflix.dao.ClassificarDao;
 import br.com.pobreflix.dao.FilmesDao;
+import br.com.pobreflix.dao.UsuarioDao;
+import br.com.pobreflix.model.Usuario;
+import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +23,19 @@ public class PrincipalController {
     @RequestMapping("/login")
     public String iniciando() {
         return "login";
+    }
+    
+    @RequestMapping("/logando")
+    public String logando(String username, String password, HttpSession session) throws SQLException{
+        System.out.println("logando");
+        System.out.print(username+ " - "+password);
+        UsuarioDao daoUsu = new UsuarioDao();
+        Usuario usuario = daoUsu.autenticar(username, password);
+        if(usuario.getNome().equals("")){
+            return "login";
+        }
+            session.setAttribute("usuario", usuario.getId());
+        return "index";
     }
 
     @RequestMapping("/registrar")

@@ -25,7 +25,7 @@
 
                         <div><img src="http://157.230.237.241/trabalhoa4/pobreflix.png" alt=""></div>
                         
-                        <form class="text-left">
+                        <form class="text-left" action="logando" method="post">
                             <div class="form">
 
                                 <div id="username-field" class="field-wrapper input">
