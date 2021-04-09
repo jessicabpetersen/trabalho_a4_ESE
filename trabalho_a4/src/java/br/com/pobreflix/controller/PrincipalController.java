@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PrincipalController {
 
-    @RequestMapping("/inicial")
+    @RequestMapping("/")
     public String iniciando() {
         return "login";
     }
@@ -37,7 +37,7 @@ public class PrincipalController {
         FilmesDao dao = new FilmesDao();
 
         try {
-            model.addAttribute("lista", dao.getFilmes(0));
+            model.addAttribute("lista", dao.getFilmes());
         } catch (Exception e) {
 
         }
@@ -105,7 +105,7 @@ public class PrincipalController {
     public String incluirClassificacao(Model model) {
         FilmesDao dao = new FilmesDao();
         try {
-            model.addAttribute("lista", dao.getFilmes(0));
+            model.addAttribute("lista", dao.getFilmes());
         } catch (Exception e) {
             e.printStackTrace();
         }
