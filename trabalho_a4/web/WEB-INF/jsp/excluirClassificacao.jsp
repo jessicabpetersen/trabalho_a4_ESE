@@ -8,6 +8,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Filme</th>
                     <th scope="col">Nota</th>
+                    <th scope="col">Data</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -16,9 +17,10 @@
                 <c:forEach items="${lista}" var="atributo">
                     <tr>
                         <th scope="row">${atributo.id}</th>
-                        <td>${atributo.filme}</td>
+                        <td>${atributo.nomeFilme}</td>
                         <td>${atributo.nota}</td>
-                        <th scope="row">${atributo.excluir}</th>
+                        <td>${atributo.data}</td>
+                        <th scope="row">${atributo.elemento}</th>
                     </tr>
                 </c:forEach>
             </tbody>

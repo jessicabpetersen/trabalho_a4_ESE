@@ -7,6 +7,7 @@ public class Classificar {
     private String nomeFilme;
     private int nota;
     private String data;
+    private String elemento;
 
     public int getId() {
         return id;
@@ -38,6 +39,14 @@ public class Classificar {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public String getElemento() {
+        return elemento;
+    }
+
+    public void setElemento(String elemento) {
+        this.elemento = elemento;
     }
 
 }
