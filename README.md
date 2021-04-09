@@ -23,8 +23,14 @@ Rafael de Miranda
   
 URI | Método | Formato | Efeito
 ---|----|---|---
-/cliente/listar | GET | Coleção de Clientes | Busca a lista de Clientes cadastrados
-/cliente/{id} | GET | Cliente| Busca um Cliente
-/cliente/{id} | DELETE| - | Remove um Cliente
-/cliente | POST | Cliente | Inclui um cliente
-/cliente | PUT | Cliente | Altera um cliente
+/filme | GET | Coleção de Filme| Busca a lista de filme
+/filmes/{nome} | GET | Filme| Busca um Filme
+/filmes/string/{string} | GET | Filme | Retorna todos os filmes que possuem aquela string
+/oscar| GET| Oscar| Busca filmes que tiveram algum Oscar
+/login | GET | Usuario | Se autentica na aplicacao
+/filmes/{id} | POST | Filme | Marca o FIlme como assistido
+/classificar/add/{id} | POST | Classificacao | Adiciona ou altera uma classificacao, de acordo com o id do filme informado
+/classificar/excluir/{id} | POST | Classificacao | Remove a classificacao do filme informado pelo id
+/assistir/{id} | POST | Filme | Insere o filme do id correspondente na tabela de filmes assistidos
+/elenco | GET | Filme | Traz todos os filmes com todos seus atores
+/elenco/{id} | GET | Ator | Traz os atores que fazem parte do elenco do filme do id informado

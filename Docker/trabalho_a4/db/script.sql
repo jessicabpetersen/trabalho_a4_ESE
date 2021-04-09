@@ -69,6 +69,7 @@ INSERT INTO usuario (nome, senha) VALUES('Pedro', 'pedrinho1');
 INSERT INTO usuario (nome, senha) VALUES('Ana1', 'senha123');
 INSERT INTO usuario (nome, senha) VALUES('Dani', 'sc12');
 INSERT INTO usuario (nome, senha) VALUES('Usuario', 'umaSenha');
+INSERT INTO usuario (nome, senha) VALUES('adilson', 'udesc');
 
 CREATE TABLE IF NOT EXISTS public.classificacoes (
 	id serial,
