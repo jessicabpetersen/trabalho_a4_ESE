@@ -3,7 +3,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-    <div class="container">
+<div class="container">
 
         <table class="table">
             <thead class="thead-dark">
@@ -24,4 +24,6 @@
             </tbody>
         </table>
     </div>
+
+
 <jsp:include page="templates/footer.jsp" />
