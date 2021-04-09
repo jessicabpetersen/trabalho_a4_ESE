@@ -139,7 +139,7 @@
                 <ul class="list-unstyled menu-categories" id="accordionExample">
        
                     <li class="menu">
-                        <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                        <a href="filmes" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                             
                                 <span>Filmes</span>
@@ -147,7 +147,7 @@
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                        <a href="oscar" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                             
                                 <span>Oscar</span>
@@ -155,7 +155,7 @@
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                        <a href="elenco" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                             
                                 <span>Elenco</span>
@@ -163,7 +163,7 @@
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                        <a href="assistir" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                         
                                 <span>Assistir</span>
@@ -171,7 +171,7 @@
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                        <a href="classificar" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                             
                                 <span>Classificar</span>
