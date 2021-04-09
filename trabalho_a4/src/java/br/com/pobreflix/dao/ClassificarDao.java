@@ -19,9 +19,8 @@ public class ClassificarDao {
     
     public int incluirClassificacao(int id_filme, int id_usuario, int nota) {
         Conexao conn = new Conexao();
-        String sql = "INSERT INSTO public.classificacoes (id, id_filme, id_usuario, sn_gostou, dt_momento)"
-                   + " VALUES ( (SELECT COALESCE(MAX(id), 0) + 1 FROM public.classificacoes), " + id_filme +
-                ", " + id_usuario + ", " + nota + ", CURRENT_TIMESTAMP)";
+        String sql = "INSERT INTO public.classificacoes (id_filme, id_usuario, sn_gostou, dt_momento)"
+                   + " VALUES ( " + id_filme + ", " + id_usuario + ", " + nota + ", CURRENT_TIMESTAMP)";
 
         int res = conn.executaSql(sql);
         if(res > 0) {
@@ -61,10 +60,10 @@ public class ClassificarDao {
         
         String sql = "Select classificacoes.id,"
                    + "classificacoes.sn_gostou,"
-                   + "classificacao.dt_momento,"
+                   + "classificacoes.dt_momento,"
                    + "filmes.nome"
                    + "from public.classificacoes"
-                   + "join public.flmes on (filmes.id = classificacoes.id_filme)";
+                   + "join public.filmes on (filmes.id = classificacoes.id_filme)";
         
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
