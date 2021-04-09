@@ -26,15 +26,14 @@ public class PrincipalController {
     }
     
     @RequestMapping("/logando")
-    public String logando(String username, String password, HttpSession session) throws SQLException{
-        System.out.println("logando");
-        System.out.print(username+ " - "+password);
+    public String logando(String username, String password, HttpSession session) throws SQLException{ 
         UsuarioDao daoUsu = new UsuarioDao();
         Usuario usuario = daoUsu.autenticar(username, password);
         if(usuario.getNome().equals("")){
             return "login";
         }
             session.setAttribute("usuario", usuario.getId());
+            System.out.println("Antes de ir p index logado"+session.getAttribute("usuario"));
         return "index";
     }
 
@@ -44,15 +43,21 @@ public class PrincipalController {
     }
 
     @RequestMapping("/index")
-    public String logar() {
+    public String logar(HttpSession session ) {
+        System.out.println("logado"+session.getAttribute("usuario"));
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         return "index";
     }
 
     @RequestMapping("/filmes")
-    public String filmes(Model model) {
-
+    public String filmes(Model model, HttpSession session ) {
+        System.out.println("logado"+session.getAttribute("usuario"));
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         FilmesDao dao = new FilmesDao();
-System.out.println("oi");
         try {
             model.addAttribute("lista", dao.getFilmes());
         } catch (Exception e) {
@@ -64,7 +69,11 @@ System.out.println("oi");
     }
 
     @RequestMapping("/filmes/{nome}")
-    public String getFilme(@PathVariable("nome") String nome, Model model) {
+    public String getFilme(@PathVariable("nome") String nome, Model model,HttpSession session) {
+        System.out.println("logado"+session.getAttribute("usuario"));
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getFilmesNome(nome));
@@ -75,7 +84,10 @@ System.out.println("oi");
     }
     
     @RequestMapping("/filmes/string/{nome}")
-    public String getFilmeNome(@PathVariable("nome") String nome, Model model) {
+    public String getFilmeNome(@PathVariable("nome") String nome, Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getFilmeString(nome));
@@ -86,7 +98,10 @@ System.out.println("oi");
     }
 
     @RequestMapping(value = {"/elenco/{id}"}, method = RequestMethod.GET)
-    public String getElenco(@PathVariable("id") int id, Model model) {
+    public String getElenco(@PathVariable("id") int id, Model model, HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
          System.out.println("entrou elencoid");
         FilmesDao dao = new FilmesDao();
         try {
@@ -100,7 +115,10 @@ System.out.println("oi");
     }
 
     @RequestMapping("/oscar")
-    public String oscar(Model model) {
+    public String oscar(Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         System.out.println("entrou oscar");
         FilmesDao dao = new FilmesDao();
         try {
@@ -112,7 +130,10 @@ System.out.println("oi");
     }
 
     @RequestMapping("/elenco")
-    public String elenco(Model model) {
+    public String elenco(Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getElencoFilmea());
@@ -123,19 +144,28 @@ System.out.println("oi");
     }
 
     @RequestMapping("/assistir/{id}")
-    public String assistir(@PathVariable("id") int id, Model model) {
+    public String assistir(@PathVariable("id") int id, Model model, HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         AssistirDao dao = new AssistirDao();
         dao.assistir(1, id);
         return "index";
     }
 
     @RequestMapping("/classificar")
-    public String classificar() {
+    public String classificar(HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         return "classificar";
     }
 
     @RequestMapping("/incluirClassificacao")
-    public String incluirClassificacao(Model model) {
+    public String incluirClassificacao(Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getFilmes());
@@ -146,14 +176,20 @@ System.out.println("oi");
     }
 
     @RequestMapping("/incluirClassificacao/{filme}{nota}")
-    public String incluirClassificacao(@PathVariable("nota") int nota, @PathVariable("filme") int filme) {
+    public String incluirClassificacao(@PathVariable("nota") int nota, @PathVariable("filme") int filme,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         ClassificarController classi = new ClassificarController();
         classi.incluir(filme, 1, nota);
         return "classificar";
     }
 
     @RequestMapping("/alterarClassificacao")
-    public String alterarClassificacao(Model model) {
+    public String alterarClassificacao(Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         ClassificarDao dao = new ClassificarDao();
         try {
             model.addAttribute("lista", dao.getClassificacoes());
@@ -164,14 +200,20 @@ System.out.println("oi");
     }
 
     @RequestMapping("/alterarClassificacao/{classificacao}{nota}")
-    public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("classificacao") int classificacao) {
+    public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("classificacao") int classificacao,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         ClassificarController classi = new ClassificarController();
         classi.alterar(classificacao, nota, 1);
         return "classificar";
     }
 
     @RequestMapping("/excluirClassificacao")
-    public String excluirClassificacao(Model model) {
+    public String excluirClassificacao(Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         ClassificarDao dao = new ClassificarDao();
         try {
             model.addAttribute("lista", dao.getClassificacoes());
@@ -182,7 +224,10 @@ System.out.println("oi");
     }
 
     @RequestMapping("/excluirClassificacao/{classificacao}")
-    public String excluirClassificacao(@PathVariable("classificacao") int classificacao) {
+    public String excluirClassificacao(@PathVariable("classificacao") int classificacao,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         ClassificarController classi = new ClassificarController();
         classi.excluir(classificacao, 1);
         return "classificar";
@@ -190,7 +235,10 @@ System.out.println("oi");
 
 
     @RequestMapping("/elenco/{id}")
-    public String elenco(@PathVariable("id") int id, Model model) {
+    public String elenco(@PathVariable("id") int id, Model model,HttpSession session) {
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
         FilmesDao dao = new FilmesDao();
         try {
             model.addAttribute("lista", dao.getElencoFilme(id));
