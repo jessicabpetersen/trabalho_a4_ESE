@@ -35,12 +35,14 @@ public class PrincipalController {
     public String filmes(Model model) {
 
         FilmesDao dao = new FilmesDao();
-
+System.out.println("oi");
         try {
             model.addAttribute("lista", dao.getFilmes());
         } catch (Exception e) {
 
         }
+        
+        
         return "filmes";
     }
 
