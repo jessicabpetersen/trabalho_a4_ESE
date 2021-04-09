@@ -9,7 +9,7 @@
                 <th scope="col">Gênero</th>
                 <th scope="col">Duração</th>
                 <th scope="col">Classificação</th>
-                <th scope="col">Assistir</th>
+                <th scope="col"></th>
             </tr>
         </thead>
 
