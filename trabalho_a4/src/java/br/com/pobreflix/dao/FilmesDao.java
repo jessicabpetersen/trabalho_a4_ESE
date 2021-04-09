@@ -182,31 +182,4 @@ public class FilmesDao {
         conn.desconectar();
         return lista;
    }
-
-public Ator getAtorFromId(Int id, Conexao conn)  throws SQLException{
-	String sql = "Select * from ator where id ="+id;
-	PreparedStatement ps = conn.getConexao().prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-         Ator a = new Ator();
-        while (rs.next()) {
-            a.setId(rs.getInt("id"));
-            a.setNome(rs.getString("nome"));
-        }
-     return a;
-   }
-
-   public List<Ator> getElencoFilme(int id) throws SQLException{
-	 System.out.println("entrou elenco com o id:" + id);
-        Conexao conn = new Conexao();
-	List<Ator> lista = new ArrayList<>();
-	String sql = "Select * from elenco where id_filme ="+id;
-	PreparedStatement ps = conn.getConexao().prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Ator a = getAtorFromId(rs.getInt("id_ator"), conn);
-	    lista.add(a);
-        }
-        conn.desconectar();
-        return lista;
-   }
 }
