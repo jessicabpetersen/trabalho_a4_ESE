@@ -59,13 +59,14 @@ System.out.println("oi");
 
     @RequestMapping(value = {"/elenco/{id}"}, method = RequestMethod.GET)
     public String getElenco(@PathVariable("nome") int id, Model model) {
+         System.out.println("entrou elencoid");
         FilmesDao dao = new FilmesDao();
         try {
 //            model.addAttribute("lista", dao.getFilmesNome());
         } catch (Exception e) {
 
         }
-        return "elenco";
+        return "ator";
     }
 
     @RequestMapping("/oscar")
