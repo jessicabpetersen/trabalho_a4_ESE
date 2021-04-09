@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class FilmesDao {
 
-    public List<Filme> getFilmes() throws SQLException {
+public List<Filme> getFilmes() throws SQLException {
         List<Filme> lista = new ArrayList<>();
         Conexao conn = new Conexao();
         String sql = "Select * from filmes";
@@ -32,12 +32,12 @@ public class FilmesDao {
         Filme filme;
         while (rs.next()) {
             filme = new Filme();
-            filme.setClassificacao(10);
             filme.setDuracao(rs.getInt("duracao"));
             filme.setGenero(rs.getInt("genero"));
             filme.setId(rs.getInt("id"));
             filme.setNome(rs.getString("nome"));
             filme.setOscares(this.getOscar(rs.getInt("id"), conn));
+            filme.setClassificacao(getClassificacao(filme.getId(), conn));
             lista.add(filme);
 
         }
