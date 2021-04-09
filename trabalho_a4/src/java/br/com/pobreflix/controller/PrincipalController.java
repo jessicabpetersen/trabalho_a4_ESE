@@ -26,9 +26,12 @@ public class PrincipalController {
 
     @RequestMapping("/filmes")
     public String filmes(Model model) {
+
         FilmesDao dao = new FilmesDao();
+
         try {
             model.addAttribute("lista", dao.getFilmes());
+            System.out.println(model);
         } catch (Exception e) {
 
         }
@@ -50,7 +53,7 @@ public class PrincipalController {
     public String getElenco(@PathVariable("nome") int id, Model model) {
         FilmesDao dao = new FilmesDao();
         try {
-//            model.addAttribute("lista", dao.getFilmesNome(nome));
+            model.addAttribute("lista", dao.getFilmesNome(nome));
         } catch (Exception e) {
 
         }
