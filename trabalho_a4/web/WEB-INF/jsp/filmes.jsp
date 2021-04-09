@@ -10,9 +10,9 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Genero</th>
-                    <th scope="col">Duracao</th>
-                    <th scope="col">Classificacao</th>
+                    <th scope="col">G�nero</th>
+                    <th scope="col">Dura��o</th>
+                    <th scope="col">Classifica��o</th>
                     <th scope="col">Visualizar</th>
                     <th scope="col">Assistir</th>
                 </tr>
