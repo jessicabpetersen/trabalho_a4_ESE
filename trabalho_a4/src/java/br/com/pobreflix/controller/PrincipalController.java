@@ -80,34 +80,67 @@ public class PrincipalController {
     }
 
     @RequestMapping("/assistir")
-    public String assistir() {
+    public String assistir(Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getFilmes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "assistir";
     }
-    
+
     @RequestMapping("/classificar")
     public String classificar() {
         return "classificar";
     }
-    
-    @RequestMapping(value = {"/classificar/{nota}{usuario}{filme}"}, method = RequestMethod.POST)
+
+    @RequestMapping("/incluirClassificacao")
+    public String incluirClassificacao(Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getFilmes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "incluirClassificacao";
+    }
+
+    @RequestMapping(value = {"/incluirClassificacao/{nota}{usuario}{filme}"}, method = RequestMethod.POST)
     public String incluirClassificacao(@PathVariable("nota") int nota, @PathVariable("usuario") int usuario, @PathVariable("filme") int filme) {
         ClassificarController classi = new ClassificarController();
         classi.incluir(filme, usuario, nota);
         return "classificar";
     }
+
+    @RequestMapping("/alterarClassificacao")
+    public String alterarClassificacao(Model model) {
+        FilmesDao dao = new FilmesDao();
+        try {
+            model.addAttribute("lista", dao.getFilmes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "alterarClassificacao";
+    }
     
-    @RequestMapping(value = {"/classificar/{classificacao}{nota}{usuario}"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/alterarClassificacao/{classificacao}{nota}{usuario}"}, method = RequestMethod.POST)
     public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("usuario") int usuario, @PathVariable("classificacao") int classificacao) {
         ClassificarController classi = new ClassificarController();
         classi.alterar(classificacao, nota, usuario);
         return "classificar";
     }
+
+    @RequestMapping("/excluirClassificacao")
+    public String excluirClassificacao() {
+        return "excluirClassificacao";
+    }
     
-    @RequestMapping(value = {"/classificar/{classificacao}{usuario}"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/excluirClassificacao/{classificacao}{usuario}"}, method = RequestMethod.POST)
     public String excluirClassificacao(@PathVariable("usuario") int usuario, @PathVariable("classificacao") int classificacao) {
         ClassificarController classi = new ClassificarController();
         classi.excluir(classificacao, usuario);
         return "classificar";
     }
-    
+
 }

@@ -22,5 +22,5 @@ public class AssistirDao {
             registrar.registrarServico(id_usuario, 4);
         }
     }
-    
+
 }
