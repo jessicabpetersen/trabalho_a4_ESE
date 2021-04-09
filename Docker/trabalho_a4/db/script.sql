@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS public.filmes (
 INSERT INTO filmes (nome, duracao, genero) VALUES('Gladiador', 176, 1);
 INSERT INTO filmes (nome, duracao, genero) VALUES('AI', 122, 2);
 INSERT INTO filmes (nome, duracao, genero) VALUES('Filme3', 80, 2);
+INSERT INTO filmes (nome, duracao, genero) VALUES('um caminho', 90, 2);
+INSERT INTO filmes (nome, duracao, genero) VALUES('um dois', 100, 1);
 
 CREATE TABLE IF NOT EXISTS public.ator (
 	id serial,
@@ -18,6 +20,7 @@ CREATE TABLE IF NOT EXISTS public.ator (
 INSERT INTO ator (nome) VALUES('fernando');
 INSERT INTO ator (nome) VALUES('caio');
 INSERT INTO ator (nome) VALUES('Jussara');
+INSERT INTO ator (nome) VALUES('João');
 
 CREATE TABLE IF NOT EXISTS public.oscar_melhor_filme (
 	id serial,
