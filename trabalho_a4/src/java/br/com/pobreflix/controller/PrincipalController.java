@@ -55,6 +55,7 @@ public class PrincipalController {
         }
         return "filmes";
     }
+
     @RequestMapping("/filmes/{id}")
     public String getFilme(@PathVariable("id") int id, Model model) {
         FilmesDao dao = new FilmesDao();
@@ -140,7 +141,7 @@ public class PrincipalController {
         }
         return "alterarClassificacao";
     }
-    
+
     @RequestMapping("/alterarClassificacao/{classificacao}{nota}")
     public String alterarClassificacao(@PathVariable("nota") int nota, @PathVariable("classificacao") int classificacao) {
         ClassificarController classi = new ClassificarController();
@@ -158,7 +159,7 @@ public class PrincipalController {
         }
         return "excluirClassificacao";
     }
-    
+
     @RequestMapping("/excluirClassificacao/{classificacao}")
     public String excluirClassificacao(@PathVariable("classificacao") int classificacao) {
         ClassificarController classi = new ClassificarController();
