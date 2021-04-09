@@ -16,6 +16,7 @@
                 <th scope="col">Visualizar</th>
                 <th scope="col">Assistir</th>
                 <th scope="col">Classificar</th>
+                <th scope="col">Exclus�o</th>
             </tr>
         </thead>
 
@@ -29,9 +30,15 @@
                     <td>${atributo.classificacao}</td>
                     <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">Informações</a></td>
                     <td><a href="/trabalho_a4/assistir/${atributo.id}" class="btn btn-danger">Assitir</a></td>
-                    <td><form method="post" action="">
-                        <input ${nota} id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
-                        <button type="submit" class="btn btn-danger">Enviar</button>
+                    <td><form method="post" action="classificar/add/${atributo.id}">
+                            <input id="id" name="id" value="${atributo.id}" type="hidden">
+                        <input id="nota" name="nota" type="number" maxlength="2" min="0" max="10" size="10" required>
+                        <button type="submit" class="btn btn-danger">Salvar</button>
+                        </form></a></td>
+                    
+                     <td><form method="post" action="classificar/excluir/${atributo.id}">
+                            <input id="id" name="id" value="${atributo.id}" type="hidden">
+                        <button type="submit" class="btn btn-danger">Excluir classificacao</button>
                         </form></a></td>
                 </tr>
             </c:forEach>

@@ -149,7 +149,7 @@ public class PrincipalController {
             return "login";
         }
         AssistirDao dao = new AssistirDao();
-        dao.assistir(1, id);
+        dao.assistir((int)session.getAttribute("usuario"), id);
         return "index";
     }
 
@@ -159,6 +159,35 @@ public class PrincipalController {
             return "login";
         }
         return "classificar";
+    }
+    
+    @RequestMapping("/classificar/excluir/{id}")
+    public String classificar(@PathVariable("id") int id, HttpSession session, Model model) {
+        System.out.println("entrou no excluir classificacao, usuario id: "+session.getAttribute("usuario")+" filme id "+id);
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
+        FilmesDao dao = new FilmesDao();
+        try {
+            dao.excluirClassificacao(id, (int)session.getAttribute("usuario"));
+        } catch (Exception e) {
+
+        }
+        return "index";
+    }
+    
+    @RequestMapping("/classificar/add/{id}")
+    public String classificar(@PathVariable("id") int id, int nota, HttpSession session, Model model) {
+        System.out.println("entrou no add ou alterar classificacao, id do filme "+ id+" com nota "+ nota+" do usuario: "+session.getAttribute("usuario"));
+        if(session.getAttribute("usuario") == null){
+            return "login";
+        }
+        FilmesDao dao = new FilmesDao();
+        try {
+            dao.updateClassificacao(id, (int)session.getAttribute("usuario"), nota);
+        } catch (Exception e) {
+        }
+        return "index";
     }
 
     @RequestMapping("/incluirClassificacao")

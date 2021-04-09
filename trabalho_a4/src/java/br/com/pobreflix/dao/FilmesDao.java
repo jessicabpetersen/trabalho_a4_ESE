@@ -6,6 +6,7 @@
 package br.com.pobreflix.dao;
 
 import br.com.pobreflix.model.Ator;
+import br.com.pobreflix.model.Classificar;
 import br.com.pobreflix.model.Elenco;
 import br.com.pobreflix.model.Filme;
 import br.com.pobreflix.model.Oscar;
@@ -45,6 +46,13 @@ public List<Filme> getFilmes() throws SQLException {
         return lista;
     }
 
+    public void excluirClassificacao(int idFilme, int idUsuario) throws SQLException {
+        Conexao conn = new Conexao();
+         String sql = "delete * from classificacoes where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
+         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
+         ps.executeQuery();
+        conn.desconectar();
+    }
     public List<Filme> getFilmesNome(String nome) throws SQLException {
         List<Filme> listaTodosFIlmes = getFilmes();
         List<Filme> listaNomes = new ArrayList<>();
@@ -104,7 +112,21 @@ public List<Filme> getFilmes() throws SQLException {
         return lista;
     }
     
-    public String getAtoresElenco(int id, Conexao conn)throws SQLException{
+    public Classificar getClassificarFilme(int idFilme, int idUsuario) throws SQLException{
+        Classificar classificar = new Classificar();
+        
+         Conexao conn = new Conexao();
+          String sql = "Select * from classificacoes where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
+          PreparedStatement ps = conn.getConexao().prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            classificar.setId(rs.getInt("id"));
+            classificar.setNota(rs.getInt("sn_gostou"));
+        }
+          conn.desconectar();
+        return classificar;
+    }
+    public String getAtoresElenco(int id, Conexao conn) throws SQLException{
         List<Elenco> elenco = getElenco(id, conn);
         System.out.println("elenco: "+elenco);
         return getAtoresFromElenco(elenco, conn);
@@ -234,5 +256,32 @@ public List<Filme> getFilmes() throws SQLException {
         List<Ator> lista = getElencoFilme(id);
         System.out.println("lista de atores para retorno" + lista);
         return lista;
+   }
+   
+   public void updateClassificacao(int idFilme, int idUsuario, int nota)throws SQLException{
+       System.out.println("entrou no update, filme> "+ idFilme+" com usuario "+idUsuario+" de nota"+nota);
+       Conexao conn = new Conexao();
+         String sql = "Select * from classificacoes where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
+         System.out.println(sql);
+         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        String sql2 = "";
+        System.out.println(sql2);
+        System.out.println(sql2.equals(""));
+        
+         while(rs.next()){
+             System.out.println("eh update");
+             sql2 = "update * from classificacoes set nota = "+nota+" where id_filme = "+idFilme+" and id_usuario = "+idUsuario;
+             
+         }
+         System.out.println(sql2);
+          System.out.println(sql2.equals(""));
+         if(sql2.equals("")){
+             System.out.println("eh add");
+             sql2 = "insert into classificacoes(id_filme,id_usuario,sn_gostou) values("+idFilme+","+idUsuario+","+nota+")";
+         }
+         PreparedStatement ps2 = conn.getConexao().prepareStatement(sql2);
+         ps2.executeQuery();
+        conn.desconectar();
    }
 }
