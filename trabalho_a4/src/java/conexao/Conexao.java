@@ -24,7 +24,7 @@ public class Conexao {
         System.out.println("Conectando ao banco");
         try {
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "85ESE_A4");
+            conn = DriverManager.getConnection("jdbc:postgresql://db:5432/postgres", "postgres", "85ESE_A4");
             System.out.println("Conectado");
         } catch (ClassNotFoundException e) {
             System.out.println("Classe não encontrada, adicione o driver nas bibliotecas");
