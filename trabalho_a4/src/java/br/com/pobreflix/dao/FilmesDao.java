@@ -26,20 +26,21 @@ public class FilmesDao {
         List<Filme> lista = new ArrayList<>();
         Conexao conn = new Conexao();
         String sql = "Select * from filmes";
-
+        System.out.println("entrou getFilmes");
         PreparedStatement ps = conn.getConexao().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Filme filme;
         while (rs.next()) {
+             System.out.println("entrou whileFilme");
             filme = new Filme();
-            filme.setClassificacao(10);
+            System.out.println("nome do filme:");
+            filme.setNome(rs.getString("nome"));
             filme.setDuracao(rs.getInt("duracao"));
             filme.setGenero(rs.getInt("genero"));
             filme.setId(rs.getInt("id"));
-            filme.setNome(rs.getString("nome"));
-            filme.setOscares(this.getOscar(rs.getInt("id"), conn));
+            filme.setClassificacao(getClassificacao(filme.getId(), conn));
+            System.out.println("filme>"+ filme);
             lista.add(filme);
-
         }
         conn.desconectar();
         return lista;
@@ -96,17 +97,18 @@ public class FilmesDao {
         int classificacao = 0;
         int qtdd = 0;
         while (rs.next()) {
-            System.out.println("classificacao: " + rs.getInt("sn_gostou"));
-            classificacao += rs.getInt("sn_gostou");
+            int a = rs.getInt("sn_gostou");
+            System.out.println("classificacao: " + a);
+            classificacao += a;
             qtdd++;
         }
-        System.out.println("classificacao total: " + classificacao + "qntdd:" + qtdd);
+        System.out.println("classificacao soma: " + classificacao + "qntdd:" + qtdd);
         if (qtdd != 0) {
             classificacao = classificacao / qtdd;
         } else {
             classificacao = 0;
         }
-
+        System.out.println("classificacao total: " + classificacao);
         return classificacao;
     }
 
