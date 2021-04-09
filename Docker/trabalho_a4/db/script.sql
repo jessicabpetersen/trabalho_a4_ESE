@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS public.classificacoes (
         NOT VALID
 );
 
-INSERT INTO classificacoes (id_filme, id_usuario, sn_gostou, dt_momento) VALUES,1, 1, 10, '2020-10-10 10:23:54');
+INSERT INTO classificacoes (id_filme, id_usuario, sn_gostou, dt_momento) VALUES(1, 1, 10, '2020-10-10 10:23:54');
 INSERT INTO classificacoes (id_filme, id_usuario, sn_gostou, dt_momento) VALUES(2, 1, 8,  '2020-11-19 16:33:12');
 INSERT INTO classificacoes (id_filme, id_usuario, sn_gostou, dt_momento) VALUES(1, 2, 5,  '2021-01-09 20:45:45');
 
