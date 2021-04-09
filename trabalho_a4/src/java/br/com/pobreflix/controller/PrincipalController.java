@@ -47,7 +47,6 @@ public class PrincipalController {
     @RequestMapping("/filmes/{nome}")
     public String getFilme(@PathVariable("nome") String nome, Model model) {
         FilmesDao dao = new FilmesDao();
-        System.out.println(nome);
         try {
             model.addAttribute("lista", dao.getFilmesNome(nome));
         } catch (Exception e) {
