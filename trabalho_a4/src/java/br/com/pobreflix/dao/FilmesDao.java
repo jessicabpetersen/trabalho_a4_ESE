@@ -71,6 +71,7 @@ public class FilmesDao {
                 listaOscares.add(filme);
             }
         }
+        
         return listaOscares;
     }
 

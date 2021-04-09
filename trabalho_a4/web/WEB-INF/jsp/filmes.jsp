@@ -14,6 +14,7 @@
                     <th scope="col">Dura��o</th>
                     <th scope="col">Classifica��o</th>
                     <th scope="col">Visualizar</th>
+                    <th scope="col">Assistir</th>
                 </tr>
             </thead>
 
@@ -25,7 +26,8 @@
                         <td>${atributo.genero}</td>
                         <td>${atributo.duracao}</td>
                         <td>${atributo.classificacao}</td>
-                        <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">VER</a></td>
+                        <td><a href="/trabalho_a4/filmes/${atributo.nome}" class="btn btn-danger">Informações</a></td>
+                        <td><a href="/trabalho_a4/filmes/${atributo.id}" class="btn btn-danger">Assitir</a></td>
                     </tr>
                 </c:forEach>
 

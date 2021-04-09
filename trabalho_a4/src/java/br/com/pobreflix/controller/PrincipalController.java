@@ -53,6 +53,17 @@ public class PrincipalController {
         }
         return "filmes";
     }
+    @RequestMapping("/filmes/{id}")
+    public String getFilme(@PathVariable("id") int id, Model model) {
+        FilmesDao dao = new FilmesDao();
+//        System.out.println(nome);
+        try {
+            model.addAttribute("lista", dao.getFilmesNome("id"));
+        } catch (Exception e) {
+
+        }
+        return "filmes";
+    }
 
     @RequestMapping(value = {"/elenco/{id}"}, method = RequestMethod.GET)
     public String getElenco(@PathVariable("nome") int id, Model model) {
