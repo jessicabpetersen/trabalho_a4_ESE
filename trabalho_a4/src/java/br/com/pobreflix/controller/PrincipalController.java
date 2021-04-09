@@ -55,7 +55,6 @@ public class PrincipalController {
         return "filmes";
     }
 
-
     @RequestMapping(value = {"/elenco/{id}"}, method = RequestMethod.GET)
     public String getElenco(@PathVariable("nome") int id, Model model) {
         FilmesDao dao = new FilmesDao();
