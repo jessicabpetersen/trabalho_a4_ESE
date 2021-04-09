@@ -62,7 +62,9 @@ System.out.println("oi");
          System.out.println("entrou elencoid");
         FilmesDao dao = new FilmesDao();
         try {
-//            model.addAttribute("lista", dao.getFilmesNome());
+            System.out.println("model 1" + model.getClass());
+          model.addAttribute("lista", dao.getFilmesNome(id));
+          System.out.println("model 2" + model);
         } catch (Exception e) {
 
         }

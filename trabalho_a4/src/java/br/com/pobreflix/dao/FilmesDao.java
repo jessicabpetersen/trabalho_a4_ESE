@@ -207,9 +207,18 @@ public List<Filme> getFilmes() throws SQLException {
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             Ator a = getAtorFromId(rs.getInt("id_ator"), conn);
+            System.out.println("ator id:" + a.getId() + " c nome "+ a.getNome());
 	    lista.add(a);
         }
+        System.out.println("lista elenco:" + lista);
         conn.desconectar();
+        return lista;
+   }
+   
+   public List<Ator> getFilmesNome(int id) throws SQLException{
+        System.out.println("entrou elenco com o filme id" + id);
+        List<Ator> lista = getElencoFilme(id);
+        System.out.println("lista de atores para retorno" + lista);
         return lista;
    }
 }
