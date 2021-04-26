@@ -6,8 +6,6 @@ Alexander Felipe Chiudini Ristow
 Jéssica Bernardi Petersen  
 Rafael de Miranda  
 
-**Objetivo:**
-- criar serviço web usando Jersey  
   
 **Banco de dados:**
 ![Screenshot](mer.png)
